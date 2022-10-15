@@ -1,54 +1,41 @@
-/*!
-* Start Bootstrap - Freelancer v7.0.5 (https://startbootstrap.com/theme/freelancer)
-* Copyright 2013-2021 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+// script.js
 
-window.addEventListener('DOMContentLoaded', event => {
+// add class navbarDark on navbar scroll
+const header = document.querySelector('.navbar');
 
-    // Navbar shrink function
-    var navbarShrink = function () {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
-            return;
-        }
-        if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
-        } else {
-            navbarCollapsible.classList.add('navbar-shrink')
-        }
+window.onscroll = function () {
+  const top = window.scrollY;
+  if (top >= 100) {
+    header.classList.add('navbarDark');
+  } else {
+    header.classList.remove('navbarDark');
+  }
+};
 
-    };
+// collapse navbar after click on small devices
+const navLinks = document.querySelectorAll('.nav-item');
+const menuToggle = document.getElementById('navbarSupportedContent');
 
-    // Shrink the navbar 
-    navbarShrink();
-
-    // Shrink the navbar when page is scrolled
-    document.addEventListener('scroll', navbarShrink);
-
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            offset: 72,
-        });
-    };
-
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
-
+navLinks.forEach((l) => {
+  l.addEventListener('click', () => {
+    new bootstrap.Collapse(menuToggle).toggle()
+  })
 });
+
+// click function to add/remove class active
+function makeActive(e) {
+  var elems = document.querySelectorAll('.active');
+  [].forEach.call(elems, function (el) {
+    el.classList.remove('active');
+  });
+  e.target.className = 'active';
+}
+
+// click function to add/remove class active on Logo
+function backHome(e) {
+  var elems = document.querySelectorAll('.active');
+  [].forEach.call(elems, function (el) {
+    el.classList.remove('active');
+  });
+  // e.target.className = 'active';
+}
