@@ -39,3 +39,7 @@ function backHome(e) {
   });
   // e.target.className = 'active';
 }
+
+// javascript date in copyright footer
+const year = document.getElementById('current-year');
+year.textContent = new Date().getFullYear();
