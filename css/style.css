@@ -93,8 +93,8 @@ a:hover {
 }
 
 .btn-primary:hover {
-  background-color: hsl(215.8, 98.4%, 80%);
-  border-color: hsl(215.8, 98.4%, 80%);
+  background-color: hsl(215.8, 98.4%, 100%);
+  border-color: hsl(215.8, 98.4%, 100%);
 }
 
 .copyright {
